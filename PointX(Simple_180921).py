@@ -266,7 +266,7 @@ if __name__ == "__main__":
     now = datetime.datetime.now()  
 
     toDay = now.strftime('%Y%m%d')
-    #toDay = "2017-12-12"
+    toDay = "20180919"
     
     #下面的90，代表九十天前 365天为过去一年暑假
     begDay = now + datetime.timedelta(days=-365)
@@ -279,15 +279,15 @@ if __name__ == "__main__":
     #bk = u'沪深300'
     bk = u'中证800'
     stockList = TSLPy2.RemoteCallFunc('getbk',[bk],{})   
-    stockList =  stockList[1]
+    stockList =  stockList[1] 
 
     #stockList = [ stock[2:8]+'.'+stock[0:2] for stock in stockList ] 
     #,'601318.SH','002883.SZ','600066.SH','603578.SH']     
     #stockList =  ['600578.SH','600172.SH','000848.SZ','600993.SH','600446.SH','600519.SH']
-    stockList =  ['SH000001','SH000300','SZ399006','SH000016','SZ399673']
+    stockList =  ['SH000001','SH000300','SZ399006','SH000016','SZ399673'] 
     #stockList =  ['601328.SH','000001.SZ','600015.SH','000932.SZ','600782.SH','600282.SH','600022.SH','000959.SZ','600569.SH','600507.SH','000778.SZ','600126.SH','300003.SZ','002223.SZ','603658.SH','300463.SZ','300529.SZ','600529.SH','002022.SZ','601233.SH','603225.SH','600810.SH','002064.SZ','002206.SZ','300122.SZ','000661.SZ','002252.SZ','600161.SH','300294.SZ','300485.SZ','300009.SZ','600118.SH','300456.SZ','600138.SH','603869.SH','300178.SZ','000547.SZ','002482.SZ','300506.SZ','002713.SZ','600511.SH','000028.SZ','002589.SZ','603368.SH','002092.SZ','600409.SH','000683.SZ','603077.SH','000822.SZ','002648.SZ','600618.SH','600277.SH','600328.SH','601158.SH','000544.SZ','600820.SH','600326.SH','600512.SH','600502.SH','002460.SZ','000960.SZ','600392.SH','002716.SZ','600459.SH','600585.SH','600801.SH','000401.SZ','002233.SZ','600720.SH','000672.SZ','603986.SH','600667.SH','603501.SH','300373.SZ','002371.SZ','002049.SZ','600460.SH','601766.SH','000008.SZ','600970.SH','002051.SZ','000065.SZ','600496.SH','000636.SZ','603328.SH','002815.SZ','300476.SZ','600563.SH','002138.SZ','002463.SZ','600580.SH','000922.SZ','603988.SH','601966.SH','601058.SH','002068.SZ','300144.SZ','002310.SZ','300197.SZ','002717.SZ','300237.SZ','300349.SZ','300410.SZ','300114.SZ','002658.SZ','300572.SZ','300066.SZ'] 
     #N=2
-    Nlist = [1,]
+    Nlist = [1,] 
     closeData = getStockListPriceTSL(stockList,int(begDay),int(toDay),'close') 
     highData = getStockListPriceTSL(stockList,int(begDay),int(toDay),'high') 
     lowData = getStockListPriceTSL(stockList,int(begDay),int(toDay),'low') 
@@ -300,7 +300,7 @@ if __name__ == "__main__":
     #toDay="20170926"
     Path = 'd:\\python\\ConceptWIND\\'+toDay    
 
-    if os.path.exists(Path)  and os.access(Path, os.R_OK):
+    if os.path.exists(Path)  and os.access(Path, os.R_OK): 
         print Path , ' is exist!' 
     else:
         os.makedirs(Path) 
@@ -313,12 +313,11 @@ if __name__ == "__main__":
     FinalResults= pd.DataFrame() 
     stockLastPrice = pd.DataFrame() 
 
-    
     for cloumn in closeData.columns.values : 
         isFindZC = 0 
         isFindZL = 0
         
-        tmpDataFrame = pd.DataFrame()
+        tmpDataFrame = pd.DataFrame() 
         tmpDataFrame['low'] = lowData[cloumn] 
         tmpDataFrame['close'] = closeData[cloumn] 
         tmpDataFrame['high'] = highData[cloumn] 
